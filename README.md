@@ -1,4 +1,3 @@
-# summer-scholl
 Bash (Task #1)
 
 Title: Create scenario to change the owner of files and folders
