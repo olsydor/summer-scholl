@@ -1,0 +1,5 @@
+$ cat .gitignore
+Task_4_tf#1/
+!Task_4_tf#1/service_account.json
+!Task_4_tf#1/main.tf
+!Task_4_tf#1/apache2.sh
