@@ -8,9 +8,9 @@ provider "google"{
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
   machine_type = "f1-micro"
-  
+//Install Apache
   metadata_startup_script = file("./apache2.sh")
-
+//Add image: ubuntu 20.04
   boot_disk {
     initialize_params {
       image         = "ubuntu-os-cloud/ubuntu-2004-lts"
@@ -18,17 +18,12 @@ resource "google_compute_instance" "vm_instance" {
   }
 scheduling {
     preemptible       = true
-    automatic_restart = false
-  }
-
-  network_interface {
-    network = "default"
-    access_config {
-
+    automatic_rest   
     }
 
   }
 }
+//Allow HTTP/HTTPS traffic on a NIC
 resource "google_compute_firewall" "default" {
   name    = "test-firewall"
   network = google_compute_network.default.name
@@ -50,7 +45,9 @@ resource "google_compute_network" "default" {
 }
  data "google_client_openid_userinfo" "me" {
 }
+//Provision one SSH public key for created instance
 resource "google_os_login_ssh_public_key" "cache" {
   user   =  data.google_client_openid_userinfo.me.email
   key    = file("/home/olsydor/.ssh/ssh_key.pub")
 }
+//!Must add http server https server!
