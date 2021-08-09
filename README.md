@@ -34,7 +34,8 @@ Create Dockerfile for image definition (Apache HTTP Server).
 Requirement
 Basic image: Alpine Linux: https://hub.docker.com/_/alpine
 Add layer with Apache HTTP Server (you need to install HTTP Server)
-Change default index.html file. Use simple web page like <h1>Hello World!</h1>
+Change default index.html file. 
+Use simple web page like <h1>Hello World!</h1>
 Build your recently created image
 Create and run container with Apache HTTP Server
 
